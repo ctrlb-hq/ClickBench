@@ -1,0 +1,7 @@
+# Benchmark byproducts — never commit these.
+run.log
+# Downloaded dataset (fetched by the harness at run time).
+hits.parquet
+hits_*.parquet
+# Any local engine data dir.
+data/
