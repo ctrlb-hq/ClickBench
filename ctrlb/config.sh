@@ -49,9 +49,7 @@ post_sql() {
 # time_sql <sql> <response_file> -> prints the CLIENT-SIDE WALL time (seconds) of
 # the full HTTP round-trip on stdout, and writes the FULL response body to
 # <response_file>. The wall time (curl %{time_total}) covers sending the query,
-# the server processing it, AND receiving the entire result body — which is what
-# ClickBench requires a submission to report, NOT the server's own execution_time
-# (which excludes request/response transfer and result serialization).
+# the server processing it, AND receiving the entire result body.
 #
 # The body is downloaded in full (so the result really is sent back over the wire
 # — no server-side output suppression) and then VALIDATED as a genuine success

@@ -1,5 +1,5 @@
 #!/bin/bash
-# Readiness probe. Exit 0 once the lake answers a health check. This is a
+# Readiness probe. Exit 0 once the engine answers a health check. This is a
 # SELECT 1-level signal that does NOT require the `hits` view, so the initial
 # pre-download (viewless) start still passes. bench_check_loop calls this
 # repeatedly until it succeeds or times out.

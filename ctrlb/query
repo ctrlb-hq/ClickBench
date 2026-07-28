@@ -13,8 +13,6 @@
 # success payload, and returns curl's total transfer time; we then print the
 # result on stdout (harness convention) and the wall time on stderr.
 #
-# The `hits` view + CtrlB's baked-in scan settings from ./start stay in effect
-# for all three tries of this query (no restart between tries).
 set -u
 # shellcheck disable=SC1091
 source "$(dirname "$0")/config.sh"

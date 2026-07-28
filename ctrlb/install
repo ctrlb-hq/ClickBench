@@ -1,11 +1,6 @@
 #!/bin/bash
 # ClickBench install hook — run once, before the benchmark.
 #
-# CtrlB is shipped as a Docker image (the lake binary is NOT provided directly).
-# On a fresh VM this hook installs Docker if it is missing, pulls the image, then
-# flushes the OS caches so the writeback of the pull cannot later inflate the
-# measured load time.
-#
 # REQUIRES passwordless sudo — to install Docker if absent and to drop the OS
 # page cache (`echo 3 > /proc/sys/vm/drop_caches`), which needs root. The
 # ClickBench driver already assumes passwordless sudo (its bench_flush_caches

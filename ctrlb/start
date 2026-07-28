@@ -3,11 +3,6 @@
 # Bring CtrlB up ready to query. Called by the harness once initially (before the
 # parquet is downloaded) and again at the top of every query (RESTARTABLE=yes).
 #
-# Run the CtrlB container (image pulled in ./install), wait for health, then
-# (re)create the `hits` view — but ONLY once the harness has downloaded
-# hits.parquet. The initial pre-download start just brings the container up; it
-# has no view, which is fine because ./check is a health probe, not a view query.
-#
 # The DDL lives in ./create.sql (like the other Parquet engines). Running it here
 # infers the schema from the parquet footer. Because ./start is UNtimed, that
 # schema/footer parse is excluded from the cold-query number, which therefore
@@ -31,8 +26,7 @@ if ! wait_for_health; then
 fi
 
 # Session setup — the DDL comes from ./create.sql (single source of truth, same
-# as the other Parquet engines). CtrlB's parquet-scan settings are baked into the
-# engine, so the harness stays engine-agnostic. Runs only once the parquet exists
+# as the other Parquet engines). Runs only once the parquet exists
 # (skipped on the initial pre-download start). hits.parquet is mounted into the
 # container at $PARQUET_PATH, so we rewrite create.sql's relative LOCATION to that
 # absolute path, strip comments, then POST each ';'-separated statement.
