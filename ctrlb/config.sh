@@ -11,7 +11,7 @@ CTRLB_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 # directory into the container at the SAME path, so the hits.parquet the harness
 # downloads to $PARQUET_PATH is visible inside the container at the identical
 # path and the CREATE EXTERNAL TABLE LOCATION resolves unchanged.
-CTRLB_IMAGE="${CTRLB_IMAGE:-ghcr.io/ctrlb-hq/ctrlb-public:77f92cc}"
+CTRLB_IMAGE="${CTRLB_IMAGE:-ghcr.io/ctrlb-hq/ctrlb-public:ddce3b4}"
 CONTAINER_NAME="${CONTAINER_NAME:-ctrlb}"
 LAKE_STARTUP="${LAKE_STARTUP:-30}"
 
